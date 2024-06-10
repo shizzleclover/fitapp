@@ -27,7 +27,7 @@ class AppButton extends StatelessWidget {
     this.icon,
     this.radius,
     this.onTap,
-    this.border,
+    this.border, required FontWeight fontWeight,
   }) : super(key: key);
 
   @override

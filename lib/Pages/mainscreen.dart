@@ -22,42 +22,42 @@ class MainScreen extends StatelessWidget {
               width: 1,
             ),
           ),
-          Positioned.fill(
-            child: Image.asset(
-              'Assets/Images/Path.png',
-            ),
-          ),
-          Positioned.fill(
-            child: Image.asset(
-              'Assets/Images/Path2.png',  
-            ),
-          ),
-          Positioned.fill(
-            child: Image.asset(
-              'Assets/Images/Path3.png',  
-            ),
-          ),
-          Positioned.fill(
-            child: Image.asset(
-              'Assets/Images/Path4.png',  
-            ),
-          ),
-          Positioned.fill(
-            child: Image.asset(
-              'Assets/Images/Path5.png',  
-            ),
-          ),
-          Positioned.fill(
-            child: Image.asset(
-              'Assets/Images/Path6.png',  
-            ),
-          ),
-          Positioned.fill(
-            child: Image.asset(
-              'Assets/Images/Path7.png',  
-              width: 1,
-            ),
-          ),
+          // Positioned.fill(
+          //   child: Image.asset(
+          //     'Assets/Images/Path.png',
+          //   ),
+          // ),
+          // Positioned.fill(
+          //   child: Image.asset(
+          //     'Assets/Images/Path2.png',  
+          //   ),
+          // ),
+          // Positioned.fill(
+          //   child: Image.asset(
+          //     'Assets/Images/Path3.png',  
+          //   ),
+          // ),
+          // Positioned.fill(
+          //   child: Image.asset(
+          //     'Assets/Images/Path4.png',  
+          //   ),
+          // ),
+          // Positioned.fill(
+          //   child: Image.asset(
+          //     'Assets/Images/Path5.png',  
+          //   ),
+          // ),
+          // Positioned.fill(
+          //   child: Image.asset(
+          //     'Assets/Images/Path6.png',  
+          //   ),
+          // ),
+          // Positioned.fill(
+          //   child: Image.asset(
+          //     'Assets/Images/Path7.png',  
+          //     width: 1,
+          //   ),
+          // ),
           Positioned(
             top: 0,
             right: 0,
@@ -77,25 +77,27 @@ class MainScreen extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
+                SizedBox(height: 100), // Raise the content a bit higher
                 Text(
-                  'Welcome to FitApp',
+                  'Pump House',
                   style: TextStyle(
                     color: path,
-                    fontSize: 24,
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w600,
+                    fontSize: 48,
+                    fontFamily: 'DMSans',
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
                 Text(
-                  'Your journey starts here',
+                  'FIND OUT EXACTLY WHAT DIET & TRAINING WILL WORK SPECIFICALLY FOR YOU',
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                     color: path,
-                    fontSize: 18,
+                    fontSize: 16,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-                SizedBox(height: 20),  
+                SizedBox(height: 20),
                 AppButton(
                   backgroundColor: path,
                   text: 'Next',
@@ -113,15 +115,17 @@ class MainScreen extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => HomePage()),
                     );
                   },
-                  border: path,
+                  border: path, 
+                  fontWeight: FontWeight.w700,
                 ),
+                SizedBox(height: 300), 
               ],
             ),
           ),
           Align(
             alignment: Alignment.bottomCenter,
             child: Padding(
-              padding: const EdgeInsets.only(bottom: 20.0), // Adjust space between image and bottom of the screen as needed
+              padding: const EdgeInsets.only(bottom: 0.0), // Space between image and bottom of the screen
               child: Image.asset(
                 'Assets/Images/girl.png',
               ),

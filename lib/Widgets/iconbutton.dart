@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 
 //This is for buttons with just icons in them, no text ;
+//Created this for ease of editiong 
 class ButtonIcon extends StatelessWidget {
   final Color backgroundColor;
   final String svgPath;

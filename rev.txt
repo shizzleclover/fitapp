@@ -1,12 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
-class ScrollPage extends StatelessWidget {
-  const ScrollPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.white,
@@ -37,6 +29,3 @@ class ScrollPage extends StatelessWidget {
         ],
       ),
       )
-    );
-  }
-}
