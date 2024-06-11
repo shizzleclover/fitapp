@@ -73,6 +73,13 @@ flutter:
     - Assets/Images/Path5.png
     - Assets/Images/Path6.png
     - Assets/Images/Path7.png
+    - Assets/Images/Navigation.svg
+    - Assets/Images/Arrow.svg
+    - Assets/Images/friends.svg
+    - Assets/Images/girl.png
+    - Assets/Images/Line.png
+    - Assets/Images/Facebook.svg
+    - Assets/Images/Group.svg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

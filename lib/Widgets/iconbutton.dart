@@ -1,26 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-
-//This is for buttons with just icons in them, no text ;
-//Created this for ease of editiong 
 class ButtonIcon extends StatelessWidget {
-  final Color backgroundColor;
-  final String svgPath;
-  final double width;
-  final double height;
-  final double radius;
+  final Color? backgroundColor;
+  final String? svgPath;
+  final double? width;
+  final double? height;
+  final double? radius;
   final Color? bord;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
 
   const ButtonIcon({
     Key? key,
-    required this.backgroundColor,
-    required this.svgPath,
-    required this.width,
-    required this.height,
-    required this.radius,
-    required this.onTap, 
+    this.backgroundColor,
+    this.svgPath,
+    this.width,
+    this.height,
+    this.radius,
+    this.onTap,
     this.bord,
   }) : super(key: key);
 
@@ -34,13 +31,13 @@ class ButtonIcon extends StatelessWidget {
         decoration: BoxDecoration(
           color: backgroundColor,
           border: bord != null ? Border.all(color: bord!) : null,
-          borderRadius: BorderRadius.circular(radius),
+          borderRadius: BorderRadius.circular(radius ?? 0),
         ),
         child: Center(
           child: SvgPicture.asset(
-            'svgPath',
-            width: width * 0.5,  
-            height: height * 0.5,  
+            svgPath ?? '',
+            width: width != null ? width! * 0.5 : null,
+            height: height != null ? height! * 0.5 : null,
           ),
         ),
       ),
