@@ -1,6 +1,8 @@
+import 'package:fitapp/Pages/workoutspage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fitapp/Widgets/button.dart';
+import 'workoutspage.dart';
 
 class Friendspage extends StatelessWidget {
   const Friendspage({super.key});
@@ -16,12 +18,12 @@ class Friendspage extends StatelessWidget {
             backgroundColor: Colors.white,
             elevation: 0,
             title: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SvgPicture.asset("Assets/Images/Arrow.svg"),
-                Flexible(
+                const Flexible(
                   flex: 1,
-                  child: const Text(
+                  child: Text(
                     "Find Friends",
                     style: TextStyle(
                       fontFamily: "DMSans",
@@ -46,20 +48,34 @@ class Friendspage extends StatelessWidget {
               Stack(
                 alignment: Alignment.center,
                 children: [
+                  /*  Image.asset(
+                    'Assets/Images/Line.png',
+                    width: 250, // Set the width of the line image
+                  ),
                   Image.asset(
                     'Assets/Images/Line.png',
-                    width: 300, // Set the width of the line image
-                  ),
-                  Image.asset(
-                    'Assets/Images/girl.png',
-                    width: 100, // Set the width of the girl image
-                  ),
+                    width: 150, // Set the width of the line image
+                  ), */
+                  Container(
+                    child: ColorFiltered(
+                      colorFilter: ColorFilter.mode(
+                        Colors.white.withOpacity(
+                            0.0), // Replace Colors.white with your background color
+                        BlendMode.dstOut,
+                      ),
+                      child: Image.asset(
+                        'Assets/Images/complete.jpg',
+                        width: 400,
+                        height: 300, // Set the width of the girl image
+                      ),
+                    ),
+                  )
                 ],
               ),
               const SizedBox(height: 20), // Add some spacing below the Stack
               const Flexible(
                 child: Text(
-                  'Best Fitness app to make Closets Friends',
+                  'Best Fitness app to make Closet Friends',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontFamily: "DMSans",
@@ -100,7 +116,15 @@ class Friendspage extends StatelessWidget {
                 text: 'Invite friends from Instagram', // Set the text property
                 textColor: Colors.black, // Set the text color
                 fsize: 15, // Set the font size
-                onTap: () {}, icon: '',
+                onTap: () {
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (context) => const WorkoutScreen(),
+                  //   ),
+                  // );
+                },
+                icon: '',
               ),
             ],
 

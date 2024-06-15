@@ -30,6 +30,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  custom_sliding_segmented_control: ^1.0.0 # Replace with the latest version
+
+
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -77,9 +80,65 @@ flutter:
     - Assets/Images/Arrow.svg
     - Assets/Images/friends.svg
     - Assets/Images/girl.png
+    - Assets/Images/guy.png
     - Assets/Images/Line.png
+    - Assets/Images/threadmill.png
+    - Assets/Images/girlblack.png
     - Assets/Images/Facebook.svg
     - Assets/Images/Group.svg
+    - Assets/Images/girlpink.jpg
+    - Assets/Images/black.png
+    - Assets/Images/blue.png
+    - Assets/Images/white.png
+    - Assets/Images/More.png
+    - Assets/Images/Play.png
+    - Assets/Images/run.svg
+    - Assets/Images/calories.svg
+    - Assets/Images/cycling.svg
+    - Assets/Images/Filter.svg
+    - Assets/Images/Close.svg
+    - Assets/Images/crown.svg
+    - Assets/Images/cyclist.svg
+    - Assets/Images/mill.svg
+    - Assets/Images/smallarrow.svg
+    - Assets/Images/bicep.svg
+    - Assets/Images/butt.svg
+    - Assets/Images/back.svg
+    - Assets/Images/legs.svg
+    - Assets/Images/bench.svg
+    - Assets/Images/core.svg
+    - Assets/Images/pec.svg
+    - Assets/Images/loss.svg
+    - Assets/Images/front.svg
+    - Assets/Images/heart.svg
+    - Assets/Images/drop.svg
+    - Assets/Images/shock.svg
+    - Assets/Images/option.svg
+    - Assets/Images/special.svg
+    - Assets/Images/star.png
+    - Assets/Images/beach.png
+    - Assets/Images/trophy.png
+    - Assets/Images/badge.png
+    - Assets/Images/circle1.png
+    - Assets/Images/circle2.png
+    - Assets/Images/circle3.png
+    - Assets/Images/circle3.png
+    - Assets/Images/Calendar.png
+    - Assets/Images/Mo.png
+    - Assets/Images/Ca.png
+    - Assets/Images/Al.png
+    - Assets/Images/sara.png
+    - Assets/Images/jess.png
+    - Assets/Images/lin.png
+    - Assets/Images/card1.png
+    - Assets/Images/card2.png
+    - Assets/Images/Map.png
+    - Assets/Images/last.png
+    - Assets/Images/lift.png
+    - Assets/Images/pinklift.png
+    - Assets/Images/blacklift.png
+    - Assets/Images/complete.jpg
+    
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

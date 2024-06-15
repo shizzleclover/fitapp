@@ -13,6 +13,7 @@ class AppButton extends StatelessWidget {
   final String? fweight;
   final String? ffamily;
   final Color? border;
+  final String? icon;
   final VoidCallback? onTap;
 
   const AppButton({
@@ -29,7 +30,7 @@ class AppButton extends StatelessWidget {
     this.radius,
     this.onTap,
     this.border,
-    required String icon,
+    this.icon,
   }) : super(key: key);
 
   @override
