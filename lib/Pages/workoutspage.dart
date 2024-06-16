@@ -4,6 +4,8 @@ import 'package:fitapp/Widgets/ImageCont.dart';
 import 'package:fitapp/Widgets/container.dart';
 import 'package:fitapp/Widgets/button.dart';
 import 'package:fitapp/Widgets/appbar.dart';
+import "package:fitapp/Pages/discoverpage.dart";
+import "package:fitapp/Pages/friendspage.dart";
 
 class WorkoutScreen extends StatefulWidget {
   const WorkoutScreen({super.key});
@@ -18,10 +20,24 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(
-          title: "Workout",
-          leftIconPath: "Assets/Images/Close.svg",
-          rightIconPath: "Assets/Images/Navigation.svg"),
+      appBar: CustomAppBar(
+        title: "Workout",
+        leftIconPath: "Assets/Images/Close.svg",
+        rightIconPath: "Assets/Images/Navigation.svg",
+        onLeftIconTap: () {
+          Navigator.of(context).pop(); // Navigate back
+        },
+        onTitleTap: () {
+          Navigator.of(context).pop(
+            MaterialPageRoute(builder: (context) => const Friendspage()),
+          );
+        },
+        onRightIconTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => const DiscoverScreen()),
+          );
+        },
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 40),
@@ -35,9 +51,7 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
                 height: 200,
                 width: 370,
               ),
-              const SizedBox(
-                height: 27,
-              ),
+              const SizedBox(height: 27),
               const Align(
                 alignment: Alignment.center,
                 child: Text(
@@ -48,9 +62,7 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
                       fontWeight: FontWeight.w700),
                 ),
               ),
-              const SizedBox(
-                height: 20,
-              ),
+              const SizedBox(height: 20),
               const Align(
                 alignment: Alignment.center,
                 child: Text(
@@ -64,11 +76,7 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 20,
-              ),
-
-              // Fixed width for the segmented control
+              const SizedBox(height: 20),
               CustomSlidingSegmentedControl<int>(
                 children: const {
                   1: Text(
@@ -78,8 +86,7 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
                       fontFamily: "DMSans",
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
-                      color: Color.fromRGBO(
-                          255, 112, 134, 1), // Text color for Yearly
+                      color: Color.fromRGBO(255, 112, 134, 1),
                     ),
                   ),
                   2: Text(
@@ -99,19 +106,14 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
                 },
                 initialValue: _selectedSegment,
                 decoration: BoxDecoration(
-                  borderRadius:
-                      BorderRadius.circular(20), // More rounded borders
-                  color: const Color(
-                      0xFFFDE8E9), // Light pink background color for unselected segments
+                  borderRadius: BorderRadius.circular(20),
+                  color: const Color(0xFFFDE8E9),
                 ),
                 thumbDecoration: BoxDecoration(
                   color: _selectedSegment == 2
-                      ? const Color.fromRGBO(255, 112, 134,
-                          1) // Light pink color for selected segment "Monthly"
-                      : Colors
-                          .white, // Background color for the selected segment
-                  borderRadius: BorderRadius.circular(
-                      20), // More rounded borders for the thumb
+                      ? const Color.fromRGBO(255, 112, 134, 1)
+                      : Colors.white,
+                  borderRadius: BorderRadius.circular(20),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black26,
@@ -123,32 +125,24 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
                 ),
                 curve: Curves.easeInOut,
                 height: 55,
-                fixedWidth: 130, // Height of the control
-                innerPadding: EdgeInsets.zero, // No padding inside the control
+                fixedWidth: 130,
+                innerPadding: EdgeInsets.zero,
               ),
-
-              const SizedBox(
-                height: 30,
-              ),
+              const SizedBox(height: 30),
               const Cont(
                 txt1: "Basic",
                 txt2: "\$119 /Year",
                 txt3: "\$9.99 /Monthly billed annually",
                 txt3BackgroundColor: Color.fromARGB(255, 211, 211, 211),
               ),
-              const SizedBox(
-                height: 30,
-              ),
+              const SizedBox(height: 30),
               const Cont(
                 txt1: "Pro",
                 txt2: "\$239 /Year",
                 txt3: "\$19.99 /Monthly billed annually",
                 txtCOlor: Color.fromRGBO(255, 112, 134, 1),
               ),
-
-              SizedBox(
-                height: 30,
-              ),
+              const SizedBox(height: 30),
               AppButton(
                 text: "Payment",
                 textColor: const Color.fromARGB(255, 255, 255, 255),
@@ -156,9 +150,7 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
                 radius: 10,
                 height: 50,
               ),
-              SizedBox(
-                height: 20,
-              )
+              const SizedBox(height: 20),
             ],
           ),
         ),

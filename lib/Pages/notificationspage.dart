@@ -6,7 +6,6 @@ class NotificationsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return const Scaffold(
       appBar: CustomAppBar(
         leftIconPath: "Assets/Images/Close.svg",
@@ -41,7 +40,7 @@ class NotificationsScreen extends StatelessWidget {
               ),
               Btscontainer(
                 txt1: "Alina Jen",
-                txt2: "Started folowing you!",
+                txt2: "Started following you!",
                 svgPath1: "Assets/Images/Al.png",
                 txt3: "10:32 AM",
               ),
@@ -76,7 +75,7 @@ class NotificationsScreen extends StatelessWidget {
               ),
               Btscontainer(
                 txt1: "Catfit",
-                txt2: "Started folowing you!",
+                txt2: "Started following you!",
                 svgPath1: "Assets/Images/Ca.png",
                 txt3: "10:32 AM",
               ),
@@ -134,18 +133,16 @@ class Btscontainer extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Image.asset(svgPath1 ?? ""),
-                const SizedBox(width: 10),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
+            Image.asset(svgPath1 ?? ""),
+            const SizedBox(width: 10),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Text(
                           txt1 ?? "",
                           style: TextStyle(
                             fontFamily: 'DMSans',
@@ -154,37 +151,32 @@ class Btscontainer extends StatelessWidget {
                             color: txtColor ?? Colors.black,
                           ),
                         ),
-                        const SizedBox(width: 125),
-                        Text(
-                          txt3 ?? "",
-                          style: TextStyle(
-                            fontFamily: 'DMSans',
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: txtColor ??
-                                const Color.fromARGB(255, 165, 165, 165),
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 12,
-                    ),
-                    Flexible(
-                      child: Text(
-                        txt2 ?? "",
+                      ),
+                      Text(
+                        txt3 ?? "",
                         style: TextStyle(
                           fontFamily: 'DMSans',
-                          fontSize: 15,
-                          fontWeight: FontWeight.normal,
-                          color: txtColor ?? Colors.black,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: txtColor ??
+                              const Color.fromARGB(255, 165, 165, 165),
                         ),
-                        overflow: TextOverflow.ellipsis,
                       ),
+                    ],
+                  ),
+                  const SizedBox(height: 12),
+                  Text(
+                    txt2 ?? "",
+                    style: TextStyle(
+                      fontFamily: 'DMSans',
+                      fontSize: 15,
+                      fontWeight: FontWeight.normal,
+                      color: txtColor ?? Colors.black,
                     ),
-                  ],
-                ),
-              ],
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ],
+              ),
             ),
           ],
         ),

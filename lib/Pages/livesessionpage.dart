@@ -145,7 +145,7 @@ class LiveSessionscreen extends StatelessWidget {
               const Btscontainer(
                 txt1: "Indoor Run",
                 txt2: "24 min",
-                svgPath1: "Assets/Images/rrun.svg",
+                svgPath1: "Assets/Images/run.svg",
                 txt3: "5.56km",
                 txt4: "340 kcal",
                 svgPath2: "Assets/Images/calories.svg",

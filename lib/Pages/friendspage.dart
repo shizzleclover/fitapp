@@ -99,7 +99,11 @@ class Friendspage extends StatelessWidget {
                 text: 'Invite friends from Facebook', // Set the text property
                 textColor: Colors.black, // Set the text color
                 fsize: 15, // Set the font size
-                onTap: () {}, icon: '',
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => WorkoutScreen()));
+                },
+                icon: '',
               ),
               const SizedBox(
                 height: 20,
