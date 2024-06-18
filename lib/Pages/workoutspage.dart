@@ -27,11 +27,6 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
         onLeftIconTap: () {
           Navigator.of(context).pop(); // Navigate back
         },
-        onTitleTap: () {
-          Navigator.of(context).pop(
-            MaterialPageRoute(builder: (context) => const Friendspage()),
-          );
-        },
         onRightIconTap: () {
           Navigator.of(context).push(
             MaterialPageRoute(builder: (context) => const DiscoverScreen()),

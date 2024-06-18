@@ -2,7 +2,8 @@ import 'package:fitapp/Pages/workoutspage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fitapp/Widgets/button.dart';
-import 'workoutspage.dart';
+import 'startworkingoutpage.dart';
+import 'package:fitapp/Pages/workpage.dart';
 
 class Friendspage extends StatelessWidget {
   const Friendspage({super.key});
@@ -20,7 +21,12 @@ class Friendspage extends StatelessWidget {
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                SvgPicture.asset("Assets/Images/Arrow.svg"),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: SvgPicture.asset("Assets/Images/Arrow.svg"),
+                ),
                 const Flexible(
                   flex: 1,
                   child: Text(
@@ -100,8 +106,10 @@ class Friendspage extends StatelessWidget {
                 textColor: Colors.black, // Set the text color
                 fsize: 15, // Set the font size
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => WorkoutScreen()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const WorkScreen()));
                 },
                 icon: '',
               ),
@@ -121,12 +129,12 @@ class Friendspage extends StatelessWidget {
                 textColor: Colors.black, // Set the text color
                 fsize: 15, // Set the font size
                 onTap: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //     builder: (context) => const WorkoutScreen(),
-                  //   ),
-                  // );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Startworkingoutpage(),
+                    ),
+                  );
                 },
                 icon: '',
               ),

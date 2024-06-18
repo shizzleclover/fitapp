@@ -1,5 +1,7 @@
+import 'package:fitapp/Pages/friendspage.dart';
 import 'package:flutter/material.dart';
-import 'package:fitapp/Pages/Friendspage.dart'; // Import the Friendspage widget
+
+import 'package:fitapp/Pages/startworkingoutpage.dart'; // Import the Friendspage widget
 
 void main() {
   runApp(MyApp());

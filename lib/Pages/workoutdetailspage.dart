@@ -8,9 +8,12 @@ class WorkoutdetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(
+      appBar: CustomAppBar(
         leftIconPath: "Assets/Images/Arrow.svg",
         backGround: Color.fromARGB(255, 255, 234, 241),
+        onLeftIconTap: () {
+          Navigator.of(context).pop();
+        },
       ),
       body: Container(
         color: const Color.fromARGB(255, 255, 234, 241),

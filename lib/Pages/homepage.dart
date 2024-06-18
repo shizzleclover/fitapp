@@ -17,16 +17,16 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text('Home Page'),
       ),
-      body: Center(
+      body: const Center(
         child: ContainerGirl(
           leftBottomImage: 'Assets/Images/cont.png',
           rightSideImage: 'Assets/Images/girl.png',
           txt1: 'Today, 8 Jul',
           txt2: '1 883 Kcal',
-          buttonText: 'Track your activity', // You can set this to null if no button is needed
+          buttonText:
+              'Track your activity', // You can set this to null if no button is needed
         ),
       ),
-     
     );
   }
 }

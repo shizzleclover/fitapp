@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fitapp/Widgets/appbar.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fitapp/Pages/bodybackpage.dart';
 
 class BodyScreen extends StatelessWidget {
   const BodyScreen({super.key});
@@ -9,10 +10,13 @@ class BodyScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(
+      appBar: CustomAppBar(
         leftIconPath: "Assets/Images/Arrow.svg",
         rightIconPath: "Assets/Images/Navigation.svg",
         title: "Body-Back",
+        onLeftIconTap: () {
+          Navigator.of(context).pop();
+        },
         backGround: Color.fromARGB(255, 255, 234, 241), // Set AppBar color
       ),
       body: Container(
@@ -123,10 +127,18 @@ class BodyScreen extends StatelessWidget {
                 ),
                 Positioned(
                   top: 210, // Adjust the top value to control the overlap
-                  child: Image.asset(
-                    "Assets/Images/Play.png",
-                    width: 100,
-                    height: 100,
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Bodypackscreen()));
+                    },
+                    child: Image.asset(
+                      "Assets/Images/Play.png",
+                      width: 100,
+                      height: 100,
+                    ),
                   ),
                 ),
               ],

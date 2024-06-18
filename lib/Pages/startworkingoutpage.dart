@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fitapp/Widgets/appbar.dart';
+import 'package:fitapp/Pages/workoutdetailspage.dart';
 
 class Startworkingoutpage extends StatelessWidget {
   const Startworkingoutpage({super.key});
@@ -8,10 +9,13 @@ class Startworkingoutpage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(
+      appBar: CustomAppBar(
         leftIconPath: "Assets/Images/Close.svg",
         title: "Start Workout",
         rightIconPath: "Assets/Images/Navigation.svg",
+        onLeftIconTap: () {
+          Navigator.of(context).pop();
+        },
       ),
       body: Container(
         color: Colors.white,
@@ -45,10 +49,17 @@ class Startworkingoutpage extends StatelessWidget {
                     itemCount: 2,
                     itemBuilder: (context, index) {
                       if (index == 0) {
-                        return const BtsImage(
+                        return BtsImage(
                           imagePath: "Assets/Images/blacklift.png",
                           txt1: "Full-Body workout",
                           txt2: "Shift stubborn fat \n and build muscle",
+                          onClick: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const WorkoutdetailScreen()));
+                          },
                         );
                       } else {
                         return const BtsImage(
@@ -131,9 +142,14 @@ class Startworkingoutpage extends StatelessWidget {
                             ],
                           ),
                           //2
+
                           Column(
                             children: [
-                              SvgPicture.asset("Assets/Images/special.svg"),
+                              Stack(
+                                children: [
+                                  SvgPicture.asset("Assets/Images/special.svg"),
+                                ],
+                              ),
                               SizedBox(
                                 height: 10,
                               ),
@@ -199,54 +215,57 @@ class BtsImage extends StatelessWidget {
   final String? imagePath;
   final String? txt1;
   final String? txt2;
+  final VoidCallback? onClick;
 
-  const BtsImage({Key? key, this.imagePath, this.txt1, this.txt2})
+  const BtsImage({Key? key, this.imagePath, this.txt1, this.txt2, this.onClick})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 250,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Flexible(
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Image.asset(
-                  imagePath ?? "Assets/Images/pinklift.png",
-                  fit: BoxFit.cover,
-                  width: 180,
+    return GestureDetector(
+        onTap: onClick,
+        child: SizedBox(
+          width: 250,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Flexible(
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Image.asset(
+                      imagePath ?? "Assets/Images/pinklift.png",
+                      fit: BoxFit.cover,
+                      width: 180,
+                    ),
+                  ),
                 ),
               ),
-            ),
+              const SizedBox(height: 8),
+              Text(
+                txt1 ?? "",
+                style: const TextStyle(
+                  fontFamily: "DMSans",
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+              const SizedBox(height: 5),
+              Text(
+                txt2 ?? "",
+                style: const TextStyle(
+                  fontFamily: "DMSans",
+                  fontSize: 12,
+                  fontWeight: FontWeight.normal,
+                  color: Color.fromARGB(225, 150, 150, 150),
+                ),
+              ),
+            ],
           ),
-          const SizedBox(height: 8),
-          Text(
-            txt1 ?? "",
-            style: const TextStyle(
-              fontFamily: "DMSans",
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-            ),
-          ),
-          const SizedBox(height: 5),
-          Text(
-            txt2 ?? "",
-            style: const TextStyle(
-              fontFamily: "DMSans",
-              fontSize: 12,
-              fontWeight: FontWeight.normal,
-              color: Color.fromARGB(225, 150, 150, 150),
-            ),
-          ),
-        ],
-      ),
-    );
+        ));
   }
 }

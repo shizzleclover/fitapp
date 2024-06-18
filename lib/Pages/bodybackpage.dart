@@ -7,9 +7,12 @@ class Bodypackscreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(
+      appBar: CustomAppBar(
         leftIconPath: "Assets/Images/Close.svg",
         rightIconPath: "Assets/Images/Navigation.svg",
+        onLeftIconTap: () {
+          Navigator.of(context).pop();
+        },
         title: "Body-Back",
         backGround: Color.fromARGB(255, 255, 255, 255), // Set AppBar color
       ),

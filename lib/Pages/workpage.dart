@@ -1,3 +1,4 @@
+import 'package:fitapp/Pages/bodybackpage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import "package:flutter/material.dart";
@@ -5,6 +6,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fitapp/Widgets/appbar.dart';
 import 'package:fitapp/Widgets/button.dart';
+import 'package:fitapp/Pages/bodypageback_2.dart';
 
 class WorkScreen extends StatelessWidget {
   const WorkScreen({super.key});
@@ -12,10 +14,13 @@ class WorkScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(
+      appBar: CustomAppBar(
         title: "Workouts",
         leftIconPath: "Assets/Images/Arrow.svg",
         rightIconPath: "Assets/Images/Filter.svg",
+        onLeftIconTap: () {
+          Navigator.pop(context);
+        },
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -102,11 +107,16 @@ class WorkScreen extends StatelessWidget {
               const SizedBox(
                 height: 15,
               ),
-              const BtsContain(
-                svgPath1: "Assets/Images/back.svg",
-                txt1: "Body-Back",
-                svgPath2: "Assets/Images/smallarrow.svg",
-              ),
+              BtsContain(
+                  svgPath1: "Assets/Images/back.svg",
+                  txt1: "Body-Back",
+                  svgPath2: "Assets/Images/smallarrow.svg",
+                  ontap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (contex) => const BodyScreen()));
+                  }),
               const SizedBox(
                 height: 15,
               ),
@@ -143,6 +153,7 @@ class BtsContain extends StatelessWidget {
   final String? svgPath2;
   final Color? txtColor;
   final Color? backGround;
+  final VoidCallback? ontap;
 
   const BtsContain({
     Key? key,
@@ -154,45 +165,48 @@ class BtsContain extends StatelessWidget {
     this.svgPath1,
     this.svgPath2,
     this.txtColor,
+    this.ontap,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: height ?? 70,
-      width: width ?? 350,
-      decoration: BoxDecoration(
-        color: backGround ?? Colors.white,
-        borderRadius: BorderRadius.circular(borderRad ?? 35),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(10),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
+    return GestureDetector(
+        onDoubleTap: ontap,
+        child: Container(
+          height: height ?? 70,
+          width: width ?? 350,
+          decoration: BoxDecoration(
+            color: backGround ?? Colors.white,
+            borderRadius: BorderRadius.circular(borderRad ?? 35),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                SvgPicture.asset(svgPath1 ?? ""),
-                const SizedBox(
-                  width: 10,
+                Row(
+                  children: [
+                    SvgPicture.asset(svgPath1 ?? ""),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      txt1 ?? "",
+                      style: TextStyle(
+                          color: txtColor ?? const Color.fromARGB(255, 0, 0, 0),
+                          fontFamily: "DMSans",
+                          fontWeight: FontWeight.w700,
+                          fontSize: 16),
+                    )
+                  ],
                 ),
-                Text(
-                  txt1 ?? "",
-                  style: TextStyle(
-                      color: txtColor ?? const Color.fromARGB(255, 0, 0, 0),
-                      fontFamily: "DMSans",
-                      fontWeight: FontWeight.w700,
-                      fontSize: 16),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [SvgPicture.asset(svgPath2 ?? "")],
                 )
               ],
             ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [SvgPicture.asset(svgPath2 ?? "")],
-            )
-          ],
-        ),
-      ),
-    );
+          ),
+        ));
   }
 }
