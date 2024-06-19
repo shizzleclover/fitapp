@@ -1,6 +1,8 @@
 import "package:flutter/material.dart";
 import 'package:flutter/widgets.dart';
 import "package:fitapp/Widgets/button.dart";
+import 'package:fitapp/Pages/workpage.dart';
+import 'package:fitapp/Pages/playingpage.dart';
 
 import 'package:fitapp/Widgets/appbar.dart';
 
@@ -10,10 +12,14 @@ class Activityscreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(
-          title: "Acivity",
-          leftIconPath: "Assets/Images/Close.svg",
-          rightIconPath: "Assets/Images/Navigation.svg"),
+      appBar: CustomAppBar(
+        title: "Acivity",
+        leftIconPath: "Assets/Images/Close.svg",
+        onLeftIconTap: () {
+          Navigator.pop(context);
+        },
+        rightIconPath: "Assets/Images/Navigation.svg",
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(left: 10, right: 10, top: 20),
@@ -76,7 +82,7 @@ class Activityscreen extends StatelessWidget {
                       const SizedBox(
                         height: 10,
                       ),
-                      const Row(
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           AppButton(
@@ -86,6 +92,13 @@ class Activityscreen extends StatelessWidget {
                             width: 150,
                             height: 50,
                             radius: 10,
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const WorkScreen()));
+                            },
                           )
                         ],
                       )

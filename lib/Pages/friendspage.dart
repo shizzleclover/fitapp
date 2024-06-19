@@ -1,3 +1,4 @@
+import 'package:fitapp/Pages/activitypage.dart';
 import 'package:fitapp/Pages/workoutspage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -109,7 +110,7 @@ class Friendspage extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const WorkScreen()));
+                          builder: (context) => const WorkoutScreen()));
                 },
                 icon: '',
               ),
@@ -132,7 +133,7 @@ class Friendspage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const Startworkingoutpage(),
+                      builder: (context) => const Activityscreen(),
                     ),
                   );
                 },

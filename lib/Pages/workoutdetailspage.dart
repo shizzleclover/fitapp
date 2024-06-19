@@ -202,8 +202,9 @@ class BtsContain extends StatelessWidget {
           children: [
             Row(
               children: [
-                SvgPicture.asset(svgPath1 ?? ""),
-                const SizedBox(
+                if (svgPath1 != null && svgPath1!.isNotEmpty)
+                  SvgPicture.asset(svgPath1!),
+                SizedBox(
                   width: 10,
                 ),
                 Text(

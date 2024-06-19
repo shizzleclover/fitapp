@@ -1,3 +1,4 @@
+import 'package:fitapp/Pages/startworkingoutpage.dart';
 import 'package:flutter/material.dart';
 import 'package:fitapp/Widgets/appbar.dart';
 import 'package:flutter/widgets.dart';
@@ -9,8 +10,9 @@ class LiveSessionscreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(
+      appBar: CustomAppBar(
         leftIconPath: "Assets/Images/Close.svg",
+        onLeftIconTap: () => Navigator.pop(context),
         title: "Live Session",
         rightIconPath: "Assets/Images/Navigation.svg",
       ),
@@ -23,58 +25,66 @@ class LiveSessionscreen extends StatelessWidget {
               const SizedBox(
                 height: 16,
               ),
-              Container(
-                height: 270,
-                width: 300,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.white,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      const SizedBox(
-                        height: 14,
-                      ),
-                      const Text(
-                        "Starting in",
-                        style: TextStyle(
-                          fontFamily: "DMSans",
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 143, 142, 142),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Startworkingoutpage()));
+                },
+                child: Container(
+                  height: 270,
+                  width: 300,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.white,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const SizedBox(
+                          height: 14,
                         ),
-                      ),
-                      const Text(
-                        "04:24:01",
-                        style: TextStyle(
-                          fontFamily: "DMSans",
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xFF000000),
+                        const Text(
+                          "Starting in",
+                          style: TextStyle(
+                            fontFamily: "DMSans",
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 143, 142, 142),
+                          ),
                         ),
-                      ),
-                      const SizedBox(
-                        height: 12,
-                      ),
-                      Center(
-                        child: OverlappingImages(),
-                      ),
-                      const Text(
-                        "10 people plan to workout",
-                        style: TextStyle(
-                          fontFamily: "DMSans",
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 122, 122, 122),
+                        const Text(
+                          "04:24:01",
+                          style: TextStyle(
+                            fontFamily: "DMSans",
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFF000000),
+                          ),
                         ),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                    ],
+                        const SizedBox(
+                          height: 12,
+                        ),
+                        Center(
+                          child: OverlappingImages(),
+                        ),
+                        const Text(
+                          "10 people plan to workout",
+                          style: TextStyle(
+                            fontFamily: "DMSans",
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 122, 122, 122),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

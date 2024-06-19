@@ -1,3 +1,5 @@
+import 'package:fitapp/Pages/calendarPage.dart';
+import 'package:fitapp/Pages/workoutspage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fitapp/Widgets/appbar.dart';
@@ -8,9 +10,16 @@ class DiscoverScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(
+      appBar: CustomAppBar(
           title: "Discover",
+          onTitleTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const Calendarpage()));
+          },
           leftIconPath: "Assets/Images/Close.svg",
+          onLeftIconTap: () {
+            Navigator.pop(context);
+          },
           rightIconPath: "Assets/Images/Navigation.svg"),
       body: SingleChildScrollView(
         child: Padding(

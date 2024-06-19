@@ -7,6 +7,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fitapp/Widgets/appbar.dart';
 import 'package:fitapp/Widgets/button.dart';
 import 'package:fitapp/Pages/bodypageback_2.dart';
+import 'package:fitapp/Pages/startworkoutpage.dart';
+import 'package:fitapp/Pages/notificationspage.dart';
 
 class WorkScreen extends StatelessWidget {
   const WorkScreen({super.key});
@@ -15,13 +17,18 @@ class WorkScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        title: "Workouts",
-        leftIconPath: "Assets/Images/Arrow.svg",
-        rightIconPath: "Assets/Images/Filter.svg",
-        onLeftIconTap: () {
-          Navigator.pop(context);
-        },
-      ),
+          title: "Workouts",
+          leftIconPath: "Assets/Images/Arrow.svg",
+          rightIconPath: "Assets/Images/Filter.svg",
+          onLeftIconTap: () {
+            Navigator.pop(context);
+          },
+          onRightIconTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const Startworkoutscreen()));
+          }),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
@@ -67,7 +74,7 @@ class WorkScreen extends StatelessWidget {
                         const SizedBox(
                           height: 17,
                         ),
-                        const Align(
+                        Align(
                           alignment: Alignment.center,
                           child: AppButton(
                             text: "Join",
@@ -77,6 +84,13 @@ class WorkScreen extends StatelessWidget {
                             width: 275,
                             textColor: Colors.white,
                             radius: 10,
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          NotificationsScreen()));
+                            },
                           ),
                         )
                       ]),

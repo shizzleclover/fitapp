@@ -6,9 +6,10 @@ class NotificationsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       appBar: CustomAppBar(
         leftIconPath: "Assets/Images/Close.svg",
+        onLeftIconTap: () => Navigator.pop(context),
         title: "Notifications",
         rightIconPath: "Assets/Images/Navigation.svg",
       ),

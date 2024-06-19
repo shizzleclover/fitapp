@@ -1,3 +1,4 @@
+import 'package:fitapp/Pages/livesessionpage.dart';
 import 'package:flutter/material.dart';
 import 'package:fitapp/Widgets/appbar.dart';
 import "package:fitapp/Widgets/button.dart";
@@ -8,9 +9,12 @@ class StartRandom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(
+      appBar: CustomAppBar(
         leftIconPath: "Assets/Images/Arrow.svg",
-        rightIconPath: "Assets/Images/Navigation.svg",
+        onLeftIconTap: () {
+          Navigator.pop(context);
+        },
+
         backGround: Color.fromARGB(255, 255, 234, 241), // Set AppBar color
       ),
       body: Container(
@@ -138,7 +142,7 @@ class StartRandom extends StatelessWidget {
                         const SizedBox(
                           height: 10,
                         ),
-                        const Row(
+                        Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             AppButton(
@@ -148,6 +152,13 @@ class StartRandom extends StatelessWidget {
                               width: 200,
                               height: 50,
                               radius: 10,
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const LiveSessionscreen()));
+                              },
                             ),
                           ],
                         ),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fitapp/Widgets/appbar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fitapp/Pages/bodybackpage.dart';
+import 'package:fitapp/Pages/workpage.dart';
 
 class Startworkoutscreen extends StatelessWidget {
   const Startworkoutscreen({super.key});
@@ -8,11 +10,14 @@ class Startworkoutscreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(
+      appBar: CustomAppBar(
         title: "Start workout",
         leftIconPath: "Assets/Images/Close.svg",
+        onLeftIconTap: () {
+          Navigator.of(context).pop();
+        },
         rightIconPath: "Assets/Images/Navigation.svg",
-        backGround: Color.fromARGB(255, 255, 207, 214),
+        backGround: const Color.fromARGB(255, 255, 207, 214),
       ),
       body: Container(
         color: const Color.fromARGB(255, 255, 207, 214),
@@ -103,14 +108,21 @@ class Startworkoutscreen extends StatelessWidget {
               ],
             ),
             Positioned(
-              top: MediaQuery.of(context).size.height * 0.1 -
-                  75, // Adjust as needed
-              child: Image.asset(
-                "Assets/Images/Play.png",
-                width: 100,
-                height: 100,
-              ),
-            ),
+                top: MediaQuery.of(context).size.height * 0.1 -
+                    75, // Adjust as needed
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Bodypackscreen()));
+                  },
+                  child: Image.asset(
+                    "Assets/Images/Play.png",
+                    width: 100,
+                    height: 100,
+                  ),
+                )),
           ],
         ),
       ),
@@ -160,15 +172,16 @@ class BtsContain extends StatelessWidget {
                 const SizedBox(
                   width: 10,
                 ),
-                Text(
-                  txt1 ?? "",
-                  style: TextStyle(
-                    color: txtColor ?? const Color.fromARGB(255, 0, 0, 0),
-                    fontFamily: "DMSans",
-                    fontWeight: FontWeight.w700,
-                    fontSize: 16,
+                if (txt1 != null)
+                  Text(
+                    txt1!,
+                    style: TextStyle(
+                      color: txtColor ?? const Color.fromARGB(255, 0, 0, 0),
+                      fontFamily: "DMSans",
+                      fontWeight: FontWeight.w700,
+                      fontSize: 16,
+                    ),
                   ),
-                ),
               ],
             ),
             Row(

@@ -1,3 +1,4 @@
+import 'package:fitapp/Pages/activitypage.dart';
 import "package:flutter/material.dart";
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -9,10 +10,18 @@ class PlayingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(
-          title: "Playing",
-          leftIconPath: "Assets/Images/Close.svg",
-          rightIconPath: "Assets/Images/Navigation.svg"),
+      appBar: CustomAppBar(
+        title: "Playing",
+        leftIconPath: "Assets/Images/Close.svg",
+        onLeftIconTap: () {
+          Navigator.pop(context);
+        },
+        rightIconPath: "Assets/Images/Navigation.svg",
+        onRightIconTap: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const Activityscreen()));
+        },
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 40),

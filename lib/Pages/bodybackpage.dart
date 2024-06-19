@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fitapp/Widgets/appbar.dart';
+import 'package:fitapp/Pages/startrandompage.dart';
 
 class Bodypackscreen extends StatelessWidget {
   const Bodypackscreen({super.key});
@@ -26,8 +27,13 @@ class Bodypackscreen extends StatelessWidget {
                 height: 20,
               ),
               Center(
+                  child: GestureDetector(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => StartRandom()));
+                },
                 child: Image.asset("Assets/Images/card2.png"),
-              ),
+              )),
               SizedBox(
                 height: 40,
               ),

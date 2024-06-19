@@ -38,7 +38,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               children: [
                 GestureDetector(
                   onTap: onLeftIconTap,
-                  child: SvgPicture.asset(leftIconPath ?? ""),
+                  child: leftIconPath != null && leftIconPath!.isNotEmpty
+                      ? SvgPicture.asset(leftIconPath!)
+                      : SizedBox.shrink(),
                 ),
                 Flexible(
                   flex: 1,
@@ -56,7 +58,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 ),
                 GestureDetector(
                   onTap: onRightIconTap,
-                  child: SvgPicture.asset(rightIconPath ?? " "),
+                  child: rightIconPath != null && rightIconPath!.isNotEmpty
+                      ? SvgPicture.asset(rightIconPath!)
+                      : SizedBox.shrink(),
                 ),
               ],
             ),
